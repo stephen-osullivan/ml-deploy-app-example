@@ -5,9 +5,12 @@ import pandas as pd
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
 
+def load_model():
+    model = load('model.joblib')
+    return model
 
-model = load('model.joblib')
 app = Flask(__name__)
+
 @app.route('/')
 def home():
     return "Breast Cancer Predictions"
@@ -18,6 +21,7 @@ def predict():
     data = pd.DataFrame.from_dict(request.get_json())
 
     # Make predictions with the model
+    model = load_model()
     pred = model.predict(data)
 
     # Return the predictions as a JSON response
@@ -25,4 +29,4 @@ def predict():
 
 # Start the Flask application
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
