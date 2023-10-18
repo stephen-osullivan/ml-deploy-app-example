@@ -2,8 +2,6 @@
 from flask import Flask, request, jsonify
 from joblib import load
 import pandas as pd
-from sklearn.pipeline import Pipeline
-from sklearn.ensemble import RandomForestClassifier
 
 def load_model():
     model = load('model.joblib')
