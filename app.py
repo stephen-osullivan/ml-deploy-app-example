@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Breast Cancer Predictions"
+    return "Breast Cancer Predictions. Use /predict for predictions."
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -27,4 +27,4 @@ def predict():
 
 # Start the Flask application
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5000)
