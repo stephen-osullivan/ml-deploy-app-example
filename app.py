@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Machine Learning Breast Cancer Predictions. Use /predict for predictions."
+    return "Machine Learning (ML) Breast Cancer Predictions. Use /predict for predictions."
 
 @app.route('/predict', methods=['POST'])
 def predict():
